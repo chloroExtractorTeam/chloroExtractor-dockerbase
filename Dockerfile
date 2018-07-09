@@ -15,8 +15,6 @@ LABEL maintainer="frank.foerster@ime.fraunhofer.de" \
       org.label-schema.build-date=${BUILD_DATE} \
       org.label-schema.vcs-url="https://github.com/chloroExtractorTeam/chloroExtractor-dockerbase.git"
 
-ADD get_versions.sh /usr/local/bin/get_versions.sh
-
 RUN apt update && apt install --yes \
     liblog-log4perl-perl \
     libmoose-perl \
@@ -41,6 +39,8 @@ RUN cd /tmp/ && \
     mv SPAdes-3.10.1-Linux/ /opt//spades/
 
 ENV PATH "/opt/spades/bin:$PATH"
+
+ADD get_versions.sh /usr/local/bin/get_versions.sh
 
 # Setup of /data volume and set it as working directory
 VOLUME /data
