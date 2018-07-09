@@ -40,6 +40,8 @@ RUN cd /tmp/ && \
 
 ENV PATH "/opt/spades/bin:$PATH"
 
+ADD get_versions.sh /usr/local/bin/get_versions.sh
+
 # Setup of /data volume and set it as working directory
 VOLUME /data
 WORKDIR /data
